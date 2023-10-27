@@ -15,6 +15,7 @@ import Message from './Message';
 import Input from './Input';
 import ControlButtons from './ControlButtons';
 import DateBadge from './DateBadge';
+import { headers } from 'next/headers';
 
 const ChatRoom = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -27,6 +28,9 @@ const ChatRoom = () => {
   const [isError, setIsError] = useState(false);
   const [isInputDisabled, setIsInputDisabled] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const header = headers();
+  const ip = (header.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0];
+  console.log(ip);
 
   const getNextMessage = (user: string, bot: string) => {
     const m: IMessage[] = [
