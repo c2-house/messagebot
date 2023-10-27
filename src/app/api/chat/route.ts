@@ -1,5 +1,6 @@
 import OpenAI from 'openai';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
+import { headers } from 'next/headers';
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -8,6 +9,9 @@ const openai = new OpenAI({
 export const runtime = 'edge';
 
 export async function POST(req: Request) {
+  const headersList = headers();
+  console.log(headersList);
+
   const { relation, name, reason, manner, maxLength } = await req.json();
 
   const basePrompts = process.env.BASE_PROMPT!.split('\\n');
