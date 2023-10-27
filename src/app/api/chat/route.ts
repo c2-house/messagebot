@@ -1,29 +1,6 @@
 import OpenAI from 'openai';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 import { headers } from 'next/headers';
-import { createClient } from '@supabase/supabase-js';
-import { Database } from '@/types/supabase';
-
-const supabase = createClient<Database>(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
-
-const getIP = (req: Request) => {
-  const headersList = headers();
-  return headersList.get('x-forwarded-for');
-};
-
-const checkUsageRestriction = async (ip: string) => {
-  const { data, error } = await supabase
-    .from('usage_restriction')
-    .select('*')
-    .eq('identifier', ip)
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    throw error;
-  }
-
-  // ... rest of the logic here
-};
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -33,8 +10,7 @@ export const runtime = 'edge';
 
 export async function POST(req: Request) {
   const headersList = headers();
-  const ip = (headersList.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0];
-  console.log(ip);
+  console.log(headersList);
 
   const { relation, name, reason, manner, maxLength } = await req.json();
 
