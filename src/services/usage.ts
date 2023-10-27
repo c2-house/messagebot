@@ -8,7 +8,6 @@ import timezone from 'dayjs/plugin/timezone';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
-dayjs.tz.setDefault('Asia/Seoul');
 
 const MAX_REQUEST_COUNT = 30;
 
@@ -32,7 +31,7 @@ const checkUsageRestriction = async (ip: string): Promise<UsageCheck> => {
     .eq('identifier', ip)
     .order('created_at', { ascending: false });
 
-  const today = dayjs().format('YYYY-MM-DD');
+  const today = dayjs().tz('Asia/Seoul').format('YYYY-MM-DD');
 
   if (data && data.length > 0) {
     const createdAt = dayjs(data[0].created_at).format('YYYY-MM-DD');
@@ -57,7 +56,7 @@ export const updateCount = async () => {
       {
         identifier: ip,
         count: 1,
-        created_at: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+        created_at: dayjs().tz('Asia/Seoul').format(),
       },
     ]);
   } else if (type === 'update') {
