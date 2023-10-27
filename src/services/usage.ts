@@ -1,7 +1,14 @@
-import dayjs from 'dayjs';
 import { headers } from 'next/headers';
 import { createClient } from '@supabase/supabase-js';
 import { Database, Usage } from '@/types/supabase';
+
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault('Asia/Seoul');
 
 const MAX_REQUEST_COUNT = 30;
 
@@ -50,7 +57,7 @@ export const updateCount = async () => {
       {
         identifier: ip,
         count: 1,
-        created_at: dayjs().format(),
+        created_at: dayjs().format('YYYY-MM-DD HH:mm:ss'),
       },
     ]);
   } else if (type === 'update') {
