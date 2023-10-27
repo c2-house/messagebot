@@ -9,8 +9,9 @@ const openai = new OpenAI({
 export const runtime = 'edge';
 
 export async function POST(req: Request) {
-  const headersList = headers();
-  console.log(headersList);
+  const headerList = headers();
+  const ip = (headerList.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0];
+  console.log(ip);
 
   const { relation, name, reason, manner, maxLength } = await req.json();
 
