@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import Header from '@/components/Common/Header';
 import { QUESTIONS } from '@/components/Chat/constants';
+import { getMetaData } from '@/app/sharedMetadata';
+
+export const metadata = getMetaData({ url: '/chat/tutorial' });
 
 const TutorialPage = () => {
   return (

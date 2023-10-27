@@ -62,14 +62,14 @@ const ChatRoom = () => {
 
         if (decodedChunk.includes('\n\n')) {
           const arr = decodedChunk.split('\n\n');
-          newChunk += arr[0].replace('@', '');
+          newChunk += arr[0];
           setChunk(newChunk);
-          newChunk = arr[1].replace('@', '');
+          newChunk = arr[1];
           setChunkId((prev) => prev + 1);
           continue;
         }
 
-        newChunk += decodedChunk.replace('@', '');
+        newChunk += decodedChunk;
         setChunk(newChunk);
       }
     } catch (error) {
