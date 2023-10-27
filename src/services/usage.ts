@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { headers } from 'next/headers';
 import { createClient } from '@supabase/supabase-js';
 import { Database, Usage } from '@/types/supabase';
@@ -24,10 +25,10 @@ const checkUsageRestriction = async (ip: string): Promise<UsageCheck> => {
     .eq('identifier', ip)
     .order('created_at', { ascending: false });
 
-  const today = new Date().toISOString().split('T')[0];
+  const today = dayjs().format('YYYY-MM-DD');
 
   if (data && data.length > 0) {
-    const createdAt = new Date(data[0].created_at).toISOString().split('T')[0];
+    const createdAt = dayjs(data[0].created_at).format('YYYY-MM-DD');
     if (createdAt === today) {
       if (data[0].count >= MAX_REQUEST_COUNT) {
         throw new Error('Request limit exceeded.');
@@ -49,7 +50,7 @@ export const updateCount = async () => {
       {
         identifier: ip,
         count: 1,
-        created_at: new Date().toISOString(),
+        created_at: dayjs().format(),
       },
     ]);
   } else if (type === 'update') {
