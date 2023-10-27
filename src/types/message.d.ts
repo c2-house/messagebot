@@ -3,6 +3,7 @@ export interface PromptParams {
   name?: string;
   reason: string;
   manner: string;
+  maxLength?: number;
 }
 
 export interface IMessage {

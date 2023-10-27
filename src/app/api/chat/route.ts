@@ -8,7 +8,7 @@ const openai = new OpenAI({
 export const runtime = 'edge';
 
 export async function POST(req: Request) {
-  const { relation, name, reason, manner } = await req.json();
+  const { relation, name, reason, manner, maxLength } = await req.json();
 
   const basePrompts = process.env.BASE_PROMPT!.split('\\n');
 
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 1. ${basePrompts[1]} ${relation}.${name && ` ${name} ${process.env.NAME_PROMPT!}`}
 2. ${basePrompts[2]} ${reason}.
 3. ${basePrompts[3]} ${manner}.
-4. ${basePrompts[4]} 200.
+4. ${basePrompts[4]} ${maxLength}.
 5. ${basePrompts[5]}
 6. ${basePrompts[6]}`;
 
