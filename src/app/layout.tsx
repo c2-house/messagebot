@@ -7,8 +7,8 @@ import { getMetaData } from './sharedMetadata';
 
 const notoSans = localFont({
   src: [
-    { path: './NotoSans-Regular.woff2', weight: '400' },
-    { path: './NotoSans-Medium.woff2', weight: '500' },
+    { path: '../../public/fonts/NotoSans-Regular.woff2', weight: '400' },
+    { path: '../../public/fonts/NotoSans-Medium.woff2', weight: '500' },
   ],
   fallback: ['system-ui', 'sans-serif'],
 });
