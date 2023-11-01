@@ -6,7 +6,10 @@ import clsx from 'clsx';
 import { getMetaData } from './sharedMetadata';
 
 const notoSans = localFont({
-  src: './fonts/NotoSansKR-VariableFont.ttf',
+  src: [
+    { path: './NotoSans-Regular.woff2', weight: '400' },
+    { path: './NotoSans-Medium.woff2', weight: '500' },
+  ],
   fallback: ['system-ui', 'sans-serif'],
 });
 

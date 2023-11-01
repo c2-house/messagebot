@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer footer-center gap-4 bg-base-300 p-4 text-base-content">
+    <footer className="footer footer-center gap-4 bg-base-300 p-4 text-slate-600">
       <aside>
         <p>문의: chaechae.couple@gmail.com</p>
         <p>&copy; 메시지봇 - 인사말 생성 AI 챗봇</p>
