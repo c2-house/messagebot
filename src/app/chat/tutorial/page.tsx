@@ -17,7 +17,7 @@ const TutorialPage = () => {
         style={{ width: '100%', height: 'auto' }}
       />
 
-      <h2 className="mt-6 text-lg font-bold">
+      <h2 className="mt-6 text-lg font-medium">
         더 나은 메시지를 생성하려면 질문에 이렇게 답변해주세요! 😎
       </h2>
       <ol className="mb-6 ml-6 mt-4 list-outside list-decimal whitespace-pre-line">

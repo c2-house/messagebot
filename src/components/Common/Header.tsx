@@ -19,7 +19,7 @@ const Header = ({ title, leftUrl, rightUrl, rightIconType }: Props) => {
           <ArrowBackIcon />
         </Link>
       )}
-      <h1 className="text-center text-lg font-bold">{title}</h1>
+      <h1 className="text-center text-lg font-medium">{title}</h1>
       {rightUrl ? (
         <Link
           href={rightUrl}
