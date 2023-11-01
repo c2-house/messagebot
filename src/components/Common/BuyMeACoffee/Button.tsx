@@ -1,11 +1,11 @@
 const BuyMeACoffeeButton = () => {
   return (
-    <div className="h-[50px] w-[235px]">
+    <>
       <a
         href="https://www.buymeacoffee.com/chaechaecod"
         target="_blank"
         rel="noreferrer noopener"
-        className="h-full w-full"
+        className="h-[50px] w-[235px]"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -13,7 +13,7 @@ const BuyMeACoffeeButton = () => {
           alt="buy me a coffee"
         />
       </a>
-    </div>
+    </>
   );
 };
 

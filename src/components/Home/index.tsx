@@ -27,12 +27,15 @@ const LandingPage = () => {
           따뜻한 마음을 전하세요.
         </p>
 
-        <button className="btn btn-neutral h-[50px] w-[235px] rounded-[10px] text-lg">
-          <Link href="/chat" className="flex h-full w-full items-center justify-center gap-2">
+        <div className="flex flex-col gap-3 md:gap-5">
+          <Link
+            href="/chat"
+            className="inline-flex h-[50px] w-[235px] items-center justify-center rounded-xl bg-slate-800 font-medium text-white hover:bg-slate-700"
+          >
             메시지 만들러 가기
           </Link>
-        </button>
-        <BuyMeACoffeeButton />
+          <BuyMeACoffeeButton />
+        </div>
       </div>
 
       <Footer />
