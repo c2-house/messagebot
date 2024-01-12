@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Header from '@/components/Common/Header';
+import Header from '@/components/Chat/Header';
 import { QUESTIONS } from '@/components/Chat/constants';
 import { getMetaData } from '@/app/sharedMetadata';
 

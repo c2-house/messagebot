@@ -10,7 +10,7 @@ import {
 } from './constants';
 import { IMessage, PromptParams } from '@/types/message';
 import { generateStream } from '@/services/messages';
-import Header from '../Common/Header';
+import Header from './Header';
 import Message from './Message';
 import Input from './Input';
 import ControlButtons from './ControlButtons';
