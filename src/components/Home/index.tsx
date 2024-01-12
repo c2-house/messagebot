@@ -5,8 +5,8 @@ import Footer from '../Common/Footer';
 
 const LandingPage = () => {
   return (
-    <div className="flex h-[100dvh] flex-col justify-between">
-      <div className="flex flex-1 flex-col items-center justify-center gap-5">
+    <>
+      <main className="flex flex-1 flex-col items-center justify-center gap-5 py-20">
         <Image
           src="/images/text-logo.png"
           alt="logo"
@@ -27,7 +27,7 @@ const LandingPage = () => {
           따뜻한 마음을 전하세요.
         </p>
 
-        <div className="flex flex-col gap-3 md:gap-5">
+        <div className="mt-4 flex flex-col gap-3 md:gap-5">
           <Link
             href="/chat"
             className="inline-flex h-[50px] w-[235px] items-center justify-center rounded-xl bg-slate-800 font-medium text-white hover:bg-slate-700"
@@ -36,10 +36,10 @@ const LandingPage = () => {
           </Link>
           <BuyMeACoffeeButton />
         </div>
-      </div>
+      </main>
 
       <Footer />
-    </div>
+    </>
   );
 };
 
